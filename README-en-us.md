@@ -39,17 +39,20 @@ RemotePC-PowerSwitch is a remote computer power control system based on **ESP826
 
 ## Wiring Instructions
 
-- **ESP8266 to Relay Module**:
-ESP8266 Relay Module GPIO5 ------------> IN GND ------------> GND 3.3V/5V ------------> VCC
 
-- **Relay Module to Computer Power Button**:
-- 
-Relay Module Computer Power Button COM ------------> Power Button Pin 1 NO ------------> Power Button Pin 2
+  ESP8622 --------------- Relay Module
+  
+  GPIO5  ------------------>   IN
+  
+  GND    ------------------>   GND
+  
+  3.3V/5V ----------------->   VCC
+ 
+Relay Module ---------- Computer Power Button COM
 
+COM ------------------> 电源开关针脚 1
 
-> **Note**: Most relay modules support 5V power. If using the 3.3V output from ESP8266, ensure the relay module is compatible with 3.3V input.
-
----
+NO  ------------------> 电源开关针脚 2
 
 ## Usage Instructions
 
