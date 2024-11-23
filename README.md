@@ -1,41 +1,117 @@
-利用 ESP8266 和继电器模块实现远程控制电脑电源。通过网页界面，你可以远程发送开机和强制关机信号，在硬件上开关机
+# RemotePC-PowerSwitch
 
-功能：
-远程开机：点击按钮即可远程开机。
-强制关机：模拟长按电源键 8 秒，强制关机。
-简单的 网页界面，由 ESP8266 托管。
-Wi-Fi 控制，不需要在电脑上安装任何额外的软件或硬件。
-支持任何连接到同一 Wi-Fi 网络的设备。
-需求：
-一块 ESP8266 开发板（如 NodeMCU）。
-一个继电器模块，用于与电脑电源按钮连接。
-Arduino IDE，用于将代码上传到 ESP8266。
+RemotePC-PowerSwitch 是一个基于 **ESP8266** 和 **继电器模块** 的远程电脑电源控制系统。通过一个简单的网页界面，你可以轻松实现远程开机或强制关机操作，无需安装额外的软件或硬件。
 
-代码和注释说明：
-包括必要的库：注释解释了包括哪些库及其用途（WiFi和web服务器）。
-定义常量：解释所使用的wif、wifi密码和继电器模块。
-处理请求：每个处理请求的功能（开机和强制关机）都包括注释，以解释激活继电器背后的逻辑以及如何模拟关机动作（8秒保持）。
-WiFi设置和连接：提供有关ESP8266如何连接到Wi-Fi并输出设备IP地址的详细信息。
-服务器路由和功能：描述打开电脑的路由/开机和强制关机的路由/关机。
-循环：一个简单的注释，解释循环用于处理传入的HTTP请求。
+## 功能特点
 
-This project uses the ESP8266 and a relay module to remotely control your computer's power. Through a web interface, you can send power-on and force-shutdown signals to your computer, allowing you to turn the computer on or off remotely over Wi-Fi.
+- **远程开机**：通过网页按钮远程开机。
+- **强制关机**：模拟长按电源按钮 8 秒，强制关闭电脑。
+- **Wi-Fi 控制**：无需额外的软件，只需确保设备处于同一局域网。
+- **网页界面**：简单直观，支持手机、电脑等多种设备。
 
-Features:
-Remote Power On: Click a button to power on your computer remotely.
-Force Shutdown: Simulate a long press on the power button for 8 seconds to force shutdown.
-Simple web interface hosted by the ESP8266.
-Wi-Fi Control: No need to install additional software or hardware on your computer.
-Compatible with any device connected to the same Wi-Fi network.
+---
 
-Requirements:
-One ESP8266 development board (such as NodeMCU).
-A relay module to interface with your computer's power button.
-Arduino IDE to upload the code to the ESP8266.
-Explanation of Code and Comments:
-Include necessary libraries: Comments explain which libraries are included and their purpose (WiFi and web server).
-Define constants: Explains the SSID, password, and relay pin used.
-Handle requests: Each function handling requests (Power On and Force Shutdown) includes comments to explain the logic behind activating the relay and how the shutdown action is simulated (8-second hold).
-WiFi setup and connection: Provides details on how the ESP8266 connects to Wi-Fi and outputs the device's IP address.
-Server routes and functions: Describes the route /poweron for turning the PC on and /shutdown for force shutdown.
-Loop: A simple comment to explain that the loop is used to process incoming HTTP requ
+## 硬件需求
+
+1. **ESP8266 开发板**  
+   - 推荐使用 NodeMCU 或类似的开发板。
+   
+2. **继电器模块**  
+   - 用于连接电脑的电源按钮。
+
+3. **连接线若干**  
+   - 用于将 ESP8266 与继电器模块连接起来。
+
+---
+
+## 软件需求
+
+1. **Arduino IDE**  
+   - 用于编写和上传代码到 ESP8266。
+
+2. **必要的库**  
+   - `ESP8266WiFi.h`：管理 Wi-Fi 连接。
+   - `ESP8266WebServer.h`：创建简单的网页服务器。
+
+---
+
+## 接线说明
+
+  ESP8622 --------------- 继电器模块
+  
+  GPIO5  ------------------>   IN
+  
+  GND    ------------------>   GND
+  
+  3.3V/5V ----------------->   VCC
+                               
+
+注意：大部分继电器支持 5V 供电，如果使用 ESP8266 的 3.3V 输出供电，请确认继电器支持 3.3V 启动。
+
+---
+
+## 使用方法
+
+### 1. 配置代码
+在代码中填写以下信息：
+- Wi-Fi 名称（`SSID`）
+- Wi-Fi 密码（`password`）
+- 继电器控制引脚编号（默认为 GPIO5）
+
+### 2. 上传代码
+使用 Arduino IDE 将代码上传到 ESP8266。
+
+### 3. 获取 IP 地址
+上传完成后，打开 Arduino IDE 的串口监视器，查看 ESP8266 的 IP 地址。例如：`192.168.0.181`
+
+### 4. 访问网页
+在浏览器中输入 IP 地址（如 `http://192.168.0.2`）。网页包含两个按钮：
+- **开机**：点击开机。
+- **强制关机**：点击后模拟长按电源键 8 秒，强制关机。
+
+---
+
+## 注意事项
+
+1. **继电器选型**  
+   - 确保继电器的工作电压和电流满足 ESP8266 和电脑主板的需求。
+
+2. **供电要求**  
+   - 使用稳定的电源为 ESP8266 和继电器模块供电。
+
+3. **网络环境**  
+   - 确保控制设备和 ESP8266 处于同一 Wi-Fi 网络中。
+
+4. **安全性**  
+   - 由于网页界面通过局域网访问，请避免使用不安全的公共 Wi-Fi 网络。
+
+---
+
+## 示例截图
+
+### 网页界面
+
+- **主页：**
+  显示当前电源状态，并提供开机和强制关机按钮。
+
+- **控制按钮：**
+  ![示例界面](https://example.com/screenshot.png)  
+  （请将示例图片替换为实际的截图）
+
+---
+
+## License
+
+此项目使用 [MIT License](LICENSE)。您可以自由修改和分发代码，但需保留原作者信息。
+
+---
+
+## 贡献
+
+欢迎提交 Issue 或 Pull Request 以改进此项目。如有问题，请通过 GitHub 联系我们。
+
+---
+
+## 声明
+
+此项目仅供个人学习和娱乐用途，使用时请确保符合相关法律法规。
