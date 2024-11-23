@@ -18,3 +18,16 @@ Arduino IDE，用于将代码上传到 ESP8266。
 WiFi设置和连接：提供有关ESP8266如何连接到Wi-Fi并输出设备IP地址的详细信息。
 服务器路由和功能：描述打开电脑的路由/开机和强制关机的路由/关机。
 循环：一个简单的注释，解释循环用于处理传入的HTTP请求。
+
+This project uses the ESP8266 and a relay module to remotely control your computer's power. Through a web interface, you can send power-on and force-shutdown signals to your computer, allowing you to turn the computer on or off remotely over Wi-Fi.
+
+Features:
+Remote Power On: Click a button to power on your computer remotely.
+Force Shutdown: Simulate a long press on the power button for 8 seconds to force shutdown.
+Simple web interface hosted by the ESP8266.
+Wi-Fi Control: No need to install additional software or hardware on your computer.
+Compatible with any device connected to the same Wi-Fi network.
+Requirements:
+One ESP8266 development board (such as NodeMCU).
+A relay module to interface with your computer's power button.
+Arduino IDE to upload the code to the ESP8266.
