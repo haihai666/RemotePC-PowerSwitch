@@ -27,7 +27,15 @@ Force Shutdown: Simulate a long press on the power button for 8 seconds to force
 Simple web interface hosted by the ESP8266.
 Wi-Fi Control: No need to install additional software or hardware on your computer.
 Compatible with any device connected to the same Wi-Fi network.
+
 Requirements:
 One ESP8266 development board (such as NodeMCU).
 A relay module to interface with your computer's power button.
 Arduino IDE to upload the code to the ESP8266.
+Explanation of Code and Comments:
+Include necessary libraries: Comments explain which libraries are included and their purpose (WiFi and web server).
+Define constants: Explains the SSID, password, and relay pin used.
+Handle requests: Each function handling requests (Power On and Force Shutdown) includes comments to explain the logic behind activating the relay and how the shutdown action is simulated (8-second hold).
+WiFi setup and connection: Provides details on how the ESP8266 connects to Wi-Fi and outputs the device's IP address.
+Server routes and functions: Describes the route /poweron for turning the PC on and /shutdown for force shutdown.
+Loop: A simple comment to explain that the loop is used to process incoming HTTP requ
