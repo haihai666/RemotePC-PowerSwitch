@@ -1,3 +1,4 @@
+[English](https://github.com/haihai666/RemotePC-PowerSwitch/blob/main/README.md)
 # RemotePC-PowerSwitch
 
 RemotePC-PowerSwitch 是一个基于 **ESP8266** 和 **继电器模块** 的远程电脑电源控制系统。通过一个简单的网页界面，你可以轻松实现远程开机或强制关机操作，无需安装额外的软件或硬件。
