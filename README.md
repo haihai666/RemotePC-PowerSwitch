@@ -15,10 +15,11 @@ RemotePC-PowerSwitch 是一个基于 **ESP8266** 和 **继电器模块** 的远�
 
 1. **ESP8266 开发板**  
    - 推荐使用 NodeMCU 或类似的开发板。
-   
+   ![esp8622](https://github.com/user-attachments/assets/fd63ad78-fb9a-44b4-b057-d744a0c9a279)
+
 2. **继电器模块**  
    - 用于连接电脑的电源按钮。
-
+![继电器模块](https://github.com/user-attachments/assets/698747f6-98be-438e-9361-abb92bf2468d)
 3. **连接线若干**  
    - 用于将 ESP8266 与继电器模块连接起来。
 
@@ -44,6 +45,12 @@ RemotePC-PowerSwitch 是一个基于 **ESP8266** 和 **继电器模块** 的远�
   GND    ------------------>   GND
   
   3.3V/5V ----------------->   VCC
+ 
+继电器模块 --------------- 电源开关
+
+COM ------------------> 电源开关针脚 1
+
+NO  ------------------> 电源开关针脚 2
                                
 
 注意：大部分继电器支持 5V 供电，如果使用 ESP8266 的 3.3V 输出供电，请确认继电器支持 3.3V 启动。
@@ -56,13 +63,13 @@ RemotePC-PowerSwitch 是一个基于 **ESP8266** 和 **继电器模块** 的远�
 在代码中填写以下信息：
 - Wi-Fi 名称（`SSID`）
 - Wi-Fi 密码（`password`）
-- 继电器控制引脚编号（默认为 GPIO5）
+- 继电器控制引脚编号（默认为 GPIO5）(D1)
 
 ### 2. 上传代码
 使用 Arduino IDE 将代码上传到 ESP8266。
 
 ### 3. 获取 IP 地址
-上传完成后，打开 Arduino IDE 的串口监视器，查看 ESP8266 的 IP 地址。例如：`192.168.0.181`
+上传完成后，打开 Arduino IDE 的串口监视器，查看 ESP8266 的 IP 地址。例如：`192.168.0.2`
 
 ### 4. 访问网页
 在浏览器中输入 IP 地址（如 `http://192.168.0.2`）。网页包含两个按钮：
@@ -89,14 +96,8 @@ RemotePC-PowerSwitch 是一个基于 **ESP8266** 和 **继电器模块** 的远�
 
 ## 示例截图
 
-### 网页界面
+![示例界面](https://github.com/user-attachments/assets/92aa72c8-5d27-47e5-bafe-b7fc8cebc421)
 
-- **主页：**
-  显示当前电源状态，并提供开机和强制关机按钮。
-
-- **控制按钮：**
-  ![示例界面](https://example.com/screenshot.png)  
-  （请将示例图片替换为实际的截图）
 
 ---
 
