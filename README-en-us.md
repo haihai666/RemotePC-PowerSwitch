@@ -60,6 +60,8 @@ NO  ------------------> 电源开关针脚 2
 Fill in the following details in the code:
 - Wi-Fi Name (`SSID`)
 - Wi-Fi Password (`password`)
+- Username
+- Password
 - Relay control pin (default is `GPIO5` or `D1`)
 
 ### 2. Upload the Code
