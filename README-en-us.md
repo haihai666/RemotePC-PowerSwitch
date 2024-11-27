@@ -50,9 +50,9 @@ RemotePC-PowerSwitch is a remote computer power control system based on **ESP826
  
 Relay Module ---------- Computer Power Button COM
 
-COM ------------------> 电源开关针脚 1
+COM ------------------> Power Button Pin 1
 
-NO  ------------------> 电源开关针脚 2
+NO  ------------------> Power Button Pin 2
 
 ## Usage Instructions
 
