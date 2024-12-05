@@ -8,6 +8,7 @@ RemotePC-PowerSwitch is a remote computer power control system based on **ESP826
 - **Force Shutdown**: Simulates holding the power button for 8 seconds to force shutdown.
 - **Wi-Fi Control**: No additional software required, just ensure the devices are on the same network.
 - **Web Interface**: Simple and intuitive, compatible with phones, computers, and other devices.
+- **Power-On Auto**: Start: Prevent issues with dynamic public IP changes after a power outage, ensuring remote access remains possible.
 
 ---
 
